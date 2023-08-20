@@ -46,7 +46,7 @@ try:
                     dict_[code] += 1
 
             if (counter == 10):
-                print_msg(dict_sc, file_size)
+                print_msg(dict_, file_size)
                 counter = 0
 
 finally:

@@ -27,6 +27,7 @@ def is_safe(board, row, col, N):
             return False
     return True
 
+
 def solve_n_queens_until(board, col, N, solutions):
     if col >= N:
         solutions.append(get_queen_pos(board))
@@ -38,11 +39,13 @@ def solve_n_queens_until(board, col, N, solutions):
             solve_n_queens_until(board, col + 1, N, solutions)
             board[i][col] = 0
 
+
 def solve_attack(N):
     board = [[0] * N for _ in range(N)]
     solutions = []
     solve_n_queens_until(board, 0, N, solutions)
     return solutions
+
 
 def get_queen_pos(board):
     pos = []
@@ -52,11 +55,12 @@ def get_queen_pos(board):
                 pos.append([board.index(row), col])
     return pos
 
+
 def main():
     if len(sys.argv) != 2:
         print("Usage: nqueens N")
         sys.exit(1)
-    
+
     try:
         N = int(sys.argv[1])
     except ValueError:
@@ -70,6 +74,6 @@ def main():
     for stn in stns:
         print(stn)
 
+
 if __name__ == "__main__":
     main()
-

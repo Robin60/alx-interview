@@ -41,6 +41,9 @@ def solve_n_queens_until(board, col, N, solutions):
 
 
 def solve_attack(N):
+    """
+      Checks bombing attack on the queen"""
+
     board = [[0] * N for _ in range(N)]
     solutions = []
     solve_n_queens_until(board, 0, N, solutions)
@@ -48,6 +51,9 @@ def solve_attack(N):
 
 
 def get_queen_pos(board):
+    """ Positions the queen where there's no attack
+        in row column or diagonal"""
+
     pos = []
     for row in board:
         for col, cell in enumerate(row):

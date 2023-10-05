@@ -2,6 +2,35 @@
 """Prime game involving two players"""
 
 
+def isPrime(num):
+    if num < 2:
+        return False
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
+
+
+def winningPlayer(n):
+    """
+    If n is even, Maria wins because she starts first.
+    If n is odd, Ben wins because he can mirror Maria's moves.
+    """
+    if n % 2 == 0:
+        return "p1"
+    else:
+        return "p2"
+
+
+def remove_multiples(lst, x):
+    """Removes multiple primes"""
+    for i in range(2, len(lst)):
+        try:
+            lst[1 * x] = 0
+        except (IndexError, ValueError):
+            break
+
+
 def isWinner(x, nums):
     """Returns the winner of Prime game
        Args:
@@ -23,6 +52,9 @@ def isWinner(x, nums):
         remove_multiples(al, i)
 
     for n in nums:
+        #prime_counts = sum(1 for i in range(1, n + 1) if isPrime)
+        #winner = winningPlayer(prime_counts)
+        
         if sum(al[0:i + 1]) % 2 != 0:
             Maria += 1
         else:
@@ -34,10 +66,3 @@ def isWinner(x, nums):
         return "Ben"
     else:
         return None
-def remove_multiples(lst, x):
-    """Removes multiple primes"""
-    for i in range(2, len(lst)):
-        try:
-            lst[1 * x] = 0
-        except (IndexError, ValueError):
-            break

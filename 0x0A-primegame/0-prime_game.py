@@ -50,11 +50,12 @@ def isWinner(x, nums):
     al[0], al[1] = 0, 0
     for i in range(2, len(al)):
         remove_multiples(al, i)
-    for n in nums:
-        prime_counts = sum(1 for i in range(1, n + 1) if isPrime)
-        winner = winningPlayer(prime_counts)
 
-        if winner == "p1":
+    for n in nums:
+        #prime_counts = sum(1 for i in range(1, n + 1) if isPrime)
+        #winner = winningPlayer(prime_counts)
+        
+        if sum(al[0:i + 1]) % 2 != 0:
             Maria += 1
         else:
             Ben += 1

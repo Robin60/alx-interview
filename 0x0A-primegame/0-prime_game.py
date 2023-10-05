@@ -34,6 +34,8 @@ def isWinner(x, nums):
         return "Ben"
     else:
         return None
+
+
 def remove_multiples(lst, x):
     """Removes multiple primes"""
     for i in range(2, len(lst)):
